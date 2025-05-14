@@ -25,3 +25,36 @@ console.log(author, date, price, memo);
 
 console.log(1 == '1'); //true
 console.log(1 === '1'); //false 型も判定する
+
+
+// 配列の要素を削除
+let data2 = ['aaa', 'bbb', 'ccc'];
+console.log(delete data2[0]); // true
+console.log(data2); // [なし, 'bbb', 'ccc']
+console.log(data2.length); // 3
+
+// オブジェクトのプロパティを削除
+let langs = {
+    primary: 'japanese',
+    secondary: 'english'
+}
+console.log(delete langs.secondary); // true
+console.log(langs); // {primary: 'japanese'}
+console.log(delete langs.hoge); // true 関係ないものを指定してもtrue
+
+// プロパティ値が他で定義されたオブジェクトの場合
+let book2 = {
+    title: 'aaa',
+    author: 'bbb',
+    language: langs
+}
+console.log(delete book2.language); // true
+console.log(book2); // {title: 'aaa', author: 'bbb'}
+console.log(langs); // 参照先のオブジェクトは消えない
+
+// 型変換
+console.log(Boolean('false')); // true
+console.log(Boolean(0)) // false
+console.log(String(100) + 10); // 10010
+console.log(Number('100') + 10); // 110
+console.log(Number('aaa')); // NaN
